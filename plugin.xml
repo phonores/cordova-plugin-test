@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-test" 
+        version="1.0">
+    <name>TestPlugin</name>
+    <description>Testing plugin</description>
+    <license>MIT/license>
+    <keywords>test, sample</keywords>
+    <js-module src="www/helloPlugin.js" name="HelloPlugin">
+        <clobbers target="window.helloPlugin" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="HelloPlugin">
+                <param name="android-package" value="org.apache.cordova.plugin.HelloPlugin"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/HelloPlugin.java" target-dir="src/org/apache/cordova/test"/>
+    </platform>
+</plugin>
